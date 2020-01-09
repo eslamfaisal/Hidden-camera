@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <com.github.anastr.speedviewlib.AwesomeSpeedometer
+        android:id="@+id/AwesomeSpeedometer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sensor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        app:sv_backgroundCircleColor="#ffffff"
+        app:sv_centerCircleColor="#ff0004"
+        app:sv_indicatorColor="#ff0109"
+        app:sv_markColor="#ea00ea"
+        app:sv_maxSpeed="100"
+        app:sv_pointerColor="#ff000d"
+        app:sv_speedTextColor="#ff0008"
+        app:sv_speedometerColor="#1b5e20"
+        app:sv_textColor="#ff0000"
+        app:sv_trianglesColor="#ff0004"
+        app:sv_unitTextColor="#0055ff"
+        app:sv_unitTextSize="0dp" />
+
+    <TextView
+        android:id="@+id/m_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AwesomeSpeedometer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="0.0 µT"
+        android:textColor="#000000"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/m_value"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="NOTHING DETECTED"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="Move Phone Near Suspected Devices"
+        android:textColor="#0d0338"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:id="@+id/ghrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_below="@+id/status"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/mygraph"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner_unit">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>

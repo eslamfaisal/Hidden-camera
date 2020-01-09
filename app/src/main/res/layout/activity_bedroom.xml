@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/appcolor">
+
+        <ImageView
+            android:id="@+id/bk_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Bedroom"
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/header_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@id/adView"
+        android:background="@color/appcolor">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Possbilty spy camera in Hotel Room"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrolling"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/header_layout2"
+        android:layout_below="@+id/header_layout"
+        android:background="#fff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:text="Now A days Hotel Room Are Famous For Spy Camera\10\10Scan Every part Of The Room When You Entered By The Hidden Camera Detector\10\101. Side Table - Precaution : Apply sticker/sellotape over the view able part of the detector.\10\102.Air Condition Search in Room - Precaution : If possible use fans and turn of the AC. Turn rotating bald fans OFF.\10\103.Television behind - Precaution : Turn off main power supply. Keep objects front of the lens looking pat of the TV.\10\104.Night Lamp - Precaution : Keep it off or change its direction.\10\105.Flower Pot - Change position to least view able area\10\106.Coffee Maker - Precaution : Unplug it and put it inside cupboard\10\10Finally do not forget to turn lights off\10\10"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner_unit">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>

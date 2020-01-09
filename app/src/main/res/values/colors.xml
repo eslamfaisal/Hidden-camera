@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appcolor">#f57f17</color>
+    <color name="colorAccent">#ff0057</color>
+    <color name="colorPrimary">#f57f17</color>
+    <color name="colorPrimaryDark">#f57f17</color>
+    <color name="cyan">#ff33b5e5</color>
+    <color name="error_color_material">#f4511e</color>
+    <color name="green">#99cc00</color>
+    <color name="light_grey_trasparent">#3fdddddd</color>
+    <color name="notification_material_background_media_default_color">#ff424242</color>
+</resources>

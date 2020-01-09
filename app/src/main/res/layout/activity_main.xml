@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <RelativeLayout
+        android:id="@+id/main_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:id="@+id/secondlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:text="Hidden Camera Detector"
+                android:textColor="#0e0e0e"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/thirdlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/secondlayout"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
+
+            <Button
+                android:id="@+id/m_detect"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/buttonstyle"
+                android:text="Detect Spy devices"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+            <Button
+                android:id="@+id/camera_detect"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/m_detect"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/buttonstyle"
+                android:text="Detect Infrared Camera"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+            <Button
+                android:id="@+id/tips"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/camera_detect"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/buttonstyle"
+                android:text="Tips And Tricks"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+            <Button
+                android:id="@+id/donate"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/tips"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/buttonstyle"
+                android:text="More Apps"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner_unit">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>
