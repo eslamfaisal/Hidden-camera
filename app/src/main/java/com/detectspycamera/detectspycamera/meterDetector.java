@@ -1,22 +1,26 @@
 package com.detectspycamera.detectspycamera;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.github.anastr.speedviewlib.Gauge;
-import com.google.android.gms.ads.formats.NativeAd;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class meterDetector extends BaseActivity implements SensorEventListener {
+import com.github.anastr.speedviewlib.Gauge;
+
+
+public class meterDetector extends AppCompatActivity implements SensorEventListener {
     private final String TAG = "FBLogs";
     /* access modifiers changed from: private */
-    public NativeAd nativeAd;
+
     int[] beep = {R.raw.beep};
     MediaPlayer mediaPlayer;
     private LinearLayout adView;
@@ -29,6 +33,7 @@ public class meterDetector extends BaseActivity implements SensorEventListener {
     private TextView txty;
     private TextView txtz;
     private TextView value;
+    private AdsManager adsManager;
 
     public void onAccuracyChanged(Sensor sensor2, int i) {
     }
@@ -37,11 +42,13 @@ public class meterDetector extends BaseActivity implements SensorEventListener {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_meter_detector);
-        loadAd();
-        loadBigAd();
+        FrameLayout adContainerView = findViewById(R.id.ad_view_container);
+        adsManager = new AdsManager(this, adContainerView);
+        adsManager.loadMobUpBanner();
+
         this.sensor = findViewById(R.id.sensor_speed);
-        String str = "sensor";
-        this.mySensorManager = (SensorManager) getSystemService(str);
+
+        this.mySensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (this.mySensorManager.getDefaultSensor(2) == null) {
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.diloge);
@@ -57,10 +64,21 @@ public class meterDetector extends BaseActivity implements SensorEventListener {
         this.txtx = findViewById(R.id.txtx);
         this.txty = findViewById(R.id.txty);
         this.txtz = findViewById(R.id.txtz);
-        this.sensorManager = (SensorManager) getSystemService(str);
+        this.sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         this.mediaPlayer = MediaPlayer.create(this, this.beep[0]);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (adsManager.moPubView != null) {
+            adsManager.moPubView.destroy();
+        }
+        if (adsManager.mInterstitial != null) {
+            adsManager.mInterstitial.destroy();
+        }
+    }
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == 2) {
             float f = sensorEvent.values[0];

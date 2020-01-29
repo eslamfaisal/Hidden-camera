@@ -7,25 +7,22 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class CameraFinderSelection extends BaseActivity {
+public class CameraFinderSelection extends AppCompatActivity {
     private final String TAG = MainActivity.class.getSimpleName();
     ImageView bk_btn;
     Button btnboth;
     Button btngraph;
     Button btnspeed;
-    InterstitialAd mInterstitialAd;
-    private AdView adView;
     private Button button;
-    private InterstitialAd interstitialAd;
+
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_camera_finder_selection);
-        loadAd();
+
         this.btnboth = findViewById(R.id.btnspeedandgraph);
         this.btngraph = findViewById(R.id.btngraph);
         this.btnspeed = findViewById(R.id.btnspeed);

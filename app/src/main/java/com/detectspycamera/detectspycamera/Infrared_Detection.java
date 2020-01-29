@@ -14,15 +14,17 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.IOException;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-public class Infrared_Detection extends BaseActivity implements Callback {
+public class Infrared_Detection extends AppCompatActivity implements Callback {
     public static final int MY_PERMISSIONS_REQUEST_WRITE_CALENDAR = 123;
     RelativeLayout button2;
     Camera camera;
@@ -32,6 +34,7 @@ public class Infrared_Detection extends BaseActivity implements Callback {
     SurfaceHolder surfaceHolder;
     SurfaceView surfaceView;
     TextView txt;
+    private AdsManager adsManager;
 
     public void surfaceCreated(SurfaceHolder surfaceHolder2) {
     }
@@ -39,7 +42,10 @@ public class Infrared_Detection extends BaseActivity implements Callback {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_infrared__detection);
-        loadBigAd();
+        FrameLayout adContainerView = findViewById(R.id.ad_view_container);
+        adsManager = new AdsManager(this, adContainerView);
+        adsManager.loadMobUpBanner();
+
         this.context = this;
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setFormat(0);
@@ -60,10 +66,6 @@ public class Infrared_Detection extends BaseActivity implements Callback {
         }
     }
 
-    /* access modifiers changed from: protected */
-    public void onDestroy() {
-        super.onDestroy();
-    }
 
     public boolean checkPermission() {
         if (VERSION.SDK_INT >= 23) {
@@ -130,6 +132,20 @@ public class Infrared_Detection extends BaseActivity implements Callback {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (adsManager.moPubView != null) {
+            adsManager.moPubView.destroy();
+        }
+        if (adsManager.mInterstitial != null) {
+            adsManager.mInterstitial.destroy();
         }
     }
 }

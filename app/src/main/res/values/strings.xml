@@ -1,22 +1,10 @@
 <resources>
     <string name="app_name">Hidden camera detectors</string>
-    <string name="admob_Inerstitial_ID">ca-app-pub-5857470349008729/6707117578</string>
-    <string name="admob_banner_unit">ca-app-pub-5857470349008729/4994295243</string>
-    <string name="app_id">ca-app-pub-5857470349008729~6767710839</string>
-
-    <string name="common_google_play_services_unknown_issue">
-%1$s is having trouble with Google Play services. Please try again.
-</string>
-    <string name="fb_Inerstitial_ID">502508283643184_502509853643027</string>
-    <string name="fb_banner_unit">502508283643184_502509573643055</string>
-    <string name="fb_native_ads">502508283643184_502508853643127</string>
-    <string name="s1">Save image</string>
-    <string name="s2">Allow Ad to store image in Picture gallery?</string>
-    <string name="s3">Accept</string>
-    <string name="s4">Decline</string>
-    <string name="s5">Create calendar event</string>
-    <string name="s6">Allow Ad to create a calendar event?</string>
-    <string name="s7">Test Ad</string>
-    <string name="search_menu_title">Search</string>
-    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="admob_Inerstitial_ID">ca-app-pub-5857470349008729/6407588888</string>
+    <string name="admob_banner_unit">ca-app-pub-5857470349008729/3972997235</string>
+    <string name="app_id">ca-app-pub-5857470349008729~9470179575</string>
+    <string name="mo_banner_id_test">b195f8dd8ded45fe847ad89ed1d016da</string>
+    <string name="mo_banner_id">4fbacd893803433da50bd486f0333b48</string>
+    <string name="mo_int_id">768bcec3bff5417e9fa4acfaa3a692df</string>
+    <string name="mo_int_id_test">24534e1901884e398f1253216226017e</string>
 </resources>

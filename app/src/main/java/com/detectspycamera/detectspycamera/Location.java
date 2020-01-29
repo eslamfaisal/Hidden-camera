@@ -8,25 +8,25 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class Location extends BaseActivity {
+
+public class Location extends AppCompatActivity {
     private final String TAG = MainActivity.class.getSimpleName();
-    InterstitialAd mInterstitialAd;
-    private AdView adView;
+
     private Button bd_btn;
     private Button bt_btn;
     private Button button;
     private Button changing_btn;
-    private InterstitialAd interstitialAd;
+
     private Button outside_btn;
+
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_location);
-        loadAd();
+
         this.bd_btn = findViewById(R.id.bd_btn);
         this.bt_btn = findViewById(R.id.bt_btn);
         this.changing_btn = findViewById(R.id.changing_btn);

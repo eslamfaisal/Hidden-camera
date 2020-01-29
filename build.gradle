@@ -6,7 +6,8 @@ buildscript {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-
+        maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+        maven { url 'https://maven.google.com' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
@@ -22,8 +23,8 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-
-    }
+        maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+        maven { url 'https://maven.google.com' }    }
 }
 
 task clean(type: Delete) {

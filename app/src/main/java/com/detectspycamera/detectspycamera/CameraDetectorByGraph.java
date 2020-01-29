@@ -1,6 +1,7 @@
 package com.detectspycamera.detectspycamera;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -8,7 +9,10 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.anastr.speedviewlib.Gauge;
 import com.github.mikephil.charting.charts.LineChart;
@@ -24,29 +28,19 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class CameraDetectorByGraph extends BaseActivity implements SensorEventListener, OnChartValueSelectedListener {
+public class CameraDetectorByGraph extends AppCompatActivity implements SensorEventListener, OnChartValueSelectedListener {
     private final String TAG = MainActivity.class.getSimpleName();
-    private AdView adView;
     int[] beep = {R.raw.beep};
-    private Gauge gauge;
-    private InterstitialAd interstitialAd;
-    private LineChart mChart;
-    InterstitialAd mInterstitialAd;
     MediaPlayer mediaPlayer;
+    private Gauge gauge;
+    private LineChart mChart;
     private SensorManager mySensorManager;
     private TextView sensor;
     private SensorManager sensorManager;
     private TextView status;
     private TextView value;
+    private AdsManager adsManager;
 
     public void onAccuracyChanged(Sensor sensor2, int i) {
     }
@@ -58,9 +52,9 @@ public class CameraDetectorByGraph extends BaseActivity implements SensorEventLi
     }
 
     private void addEntry(float f) {
-        LineData lineData = (LineData) this.mChart.getData();
+        LineData lineData = this.mChart.getData();
         if (lineData != null) {
-            ILineDataSet iLineDataSet = (ILineDataSet) lineData.getDataSetByIndex(0);
+            ILineDataSet iLineDataSet = lineData.getDataSetByIndex(0);
             if (iLineDataSet == null) {
                 iLineDataSet = createSet();
                 lineData.addDataSet(iLineDataSet);
@@ -91,12 +85,15 @@ public class CameraDetectorByGraph extends BaseActivity implements SensorEventLi
     /* access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView((int) R.layout.activity_camera_detector_by_graph);
-        loadAd();
-        loadBigAd();
-        this.sensor = (TextView) findViewById(R.id.sensor_graph);
-        String str = "sensor";
-        this.mySensorManager = (SensorManager) getSystemService(str);
+        setContentView(R.layout.activity_camera_detector_by_graph);
+        FrameLayout adContainerView = findViewById(R.id.ad_view_container);
+        adsManager = new AdsManager(this, adContainerView);
+        adsManager.loadMobUpBanner();
+
+
+        this.sensor = findViewById(R.id.sensor_graph);
+
+        this.mySensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (this.mySensorManager.getDefaultSensor(2) == null) {
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.diloge);
@@ -106,12 +103,12 @@ public class CameraDetectorByGraph extends BaseActivity implements SensorEventLi
         } else {
             this.sensor.setText("Move Phone Near Suspected Devices");
         }
-        this.value = (TextView) findViewById(R.id.m_value_graph);
-        this.status = (TextView) findViewById(R.id.status_graph);
-        this.gauge = (Gauge) findViewById(R.id.showinprogress);
-        this.sensorManager = (SensorManager) getSystemService(str);
+        this.value = findViewById(R.id.m_value_graph);
+        this.status = findViewById(R.id.status_graph);
+        this.gauge = findViewById(R.id.showinprogress);
+        this.sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         this.mediaPlayer = MediaPlayer.create(this, this.beep[0]);
-        LineChart lineChart = (LineChart) findViewById(R.id.mygraph_fullchart);
+        LineChart lineChart = findViewById(R.id.mygraph_fullchart);
         this.mChart = lineChart;
         lineChart.setOnChartValueSelectedListener(this);
         this.mChart.getDescription().setEnabled(true);
@@ -182,7 +179,7 @@ public class CameraDetectorByGraph extends BaseActivity implements SensorEventLi
             }
             TextView textView = this.value;
             StringBuilder sb = new StringBuilder();
-            sb.append(String.valueOf(j));
+            sb.append(j);
             sb.append(" µT");
             textView.setText(sb.toString());
             double d = (double) j;
@@ -191,4 +188,16 @@ public class CameraDetectorByGraph extends BaseActivity implements SensorEventLi
         }
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (adsManager.moPubView != null) {
+            adsManager.moPubView.destroy();
+        }
+        if (adsManager.mInterstitial != null) {
+            adsManager.mInterstitial.destroy();
+        }
+    }
 }

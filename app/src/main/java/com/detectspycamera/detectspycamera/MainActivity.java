@@ -1,7 +1,6 @@
 package com.detectspycamera.detectspycamera;
 
 import android.content.Intent;
-import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,26 +8,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
     private final String TAG = "eslamfaisal";
-    Button camera_detect;
-    Button donate;
-    InterstitialAd mInterstitialAd;
-    Button m_detect;
-    Button tips;
-    private AdView adView;
-    private InterstitialAd interstitialAd;
-    private SensorManager mySensorManager;
+    private Button camera_detect;
+    private Button donate;
+    private Button m_detect;
+    private Button tips;
+    private AdsManager adsManager;
 
-    /* access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
-        loadAd();
+
+        FrameLayout adContainerView = findViewById(R.id.ad_view_container);
+        adsManager = new AdsManager(this, adContainerView);
+        adsManager.loadMobUpBanner();
+
 
         this.m_detect = findViewById(R.id.m_detect);
         this.camera_detect = findViewById(R.id.camera_detect);
@@ -54,6 +53,8 @@ public class MainActivity extends BaseActivity {
                 MainActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps")));
             }
         });
+        // Step 1 - Create an AdView and set the ad unit ID on it.
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,5 +77,15 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+        if (adsManager.moPubView != null) {
+            adsManager.moPubView.destroy();
+        }
+        if (adsManager.mInterstitial != null) {
+            adsManager.mInterstitial.destroy();
+        }
+    }
 }

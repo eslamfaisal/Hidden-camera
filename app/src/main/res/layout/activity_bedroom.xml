@@ -28,21 +28,6 @@
             android:textSize="25dp" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/header_layout2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_above="@id/adView"
-        android:background="@color/appcolor">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Possbilty spy camera in Hotel Room"
-            android:textColor="#ffffff"
-            android:textSize="17dp"
-            android:textStyle="bold" />
-    </RelativeLayout>
 
     <ScrollView
         android:id="@+id/scrolling"
@@ -50,6 +35,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/header_layout2"
         android:layout_below="@+id/header_layout"
+        android:layout_marginBottom="50dp"
         android:background="#fff">
 
         <TextView
@@ -64,14 +50,11 @@
             android:textSize="20dp" />
     </ScrollView>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/ad_view_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/admob_banner_unit">
-    </com.google.android.gms.ads.AdView>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 </RelativeLayout>

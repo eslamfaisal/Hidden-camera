@@ -26,23 +26,6 @@
             android:textSize="25dp" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_above="@id/adView"
-        android:id="@+id/header_layout2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/appcolor">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="CCTV Camera Outside"
-            android:textColor="#ffffff"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
     <ScrollView
         android:id="@+id/scrolling"
         android:layout_width="match_parent"
@@ -62,14 +45,11 @@
             android:textSize="20dp" />
     </ScrollView>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/ad_view_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/admob_banner_unit">
-    </com.google.android.gms.ads.AdView>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 </RelativeLayout>

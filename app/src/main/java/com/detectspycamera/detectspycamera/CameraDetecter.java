@@ -1,6 +1,7 @@
 package com.detectspycamera.detectspycamera;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -8,7 +9,10 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.anastr.speedviewlib.Gauge;
 import com.github.mikephil.charting.charts.LineChart;
@@ -24,25 +28,20 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class CameraDetecter extends BaseActivity implements SensorEventListener, OnChartValueSelectedListener {
+public class CameraDetecter extends AppCompatActivity implements SensorEventListener, OnChartValueSelectedListener {
     private final String TAG = MainActivity.class.getSimpleName();
     int[] beep = {R.raw.beep};
-    InterstitialAd mInterstitialAd;
     MediaPlayer mediaPlayer;
-    private AdView adView;
     private Gauge gauge;
-    private InterstitialAd interstitialAd;
+
     private LineChart mChart;
     private SensorManager mySensorManager;
     private TextView sensor;
     private SensorManager sensorManager;
     private TextView status;
     private TextView value;
+    private AdsManager adsManager;
 
     public void onAccuracyChanged(Sensor sensor2, int i) {
     }
@@ -88,11 +87,13 @@ public class CameraDetecter extends BaseActivity implements SensorEventListener,
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_camera_detecter);
-        loadAd();
-        loadBigAd();
+        FrameLayout adContainerView = findViewById(R.id.ad_view_container);
+        adsManager = new AdsManager(this, adContainerView);
+        adsManager.loadMobUpBanner();
+
         this.sensor = findViewById(R.id.sensor);
-        String str = "sensor";
-        this.mySensorManager = (SensorManager) getSystemService(str);
+
+        this.mySensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (this.mySensorManager.getDefaultSensor(2) == null) {
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.diloge);
@@ -105,7 +106,7 @@ public class CameraDetecter extends BaseActivity implements SensorEventListener,
         this.value = findViewById(R.id.m_value);
         this.status = findViewById(R.id.status);
         this.gauge = findViewById(R.id.AwesomeSpeedometer);
-        this.sensorManager = (SensorManager) getSystemService(str);
+        this.sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         this.mediaPlayer = MediaPlayer.create(this, this.beep[0]);
         LineChart lineChart = findViewById(R.id.mygraph);
         this.mChart = lineChart;
@@ -198,5 +199,17 @@ public class CameraDetecter extends BaseActivity implements SensorEventListener,
     public void onPause() {
         super.onPause();
         this.sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (adsManager.moPubView != null) {
+            adsManager.moPubView.destroy();
+        }
+        if (adsManager.mInterstitial != null) {
+            adsManager.mInterstitial.destroy();
+        }
     }
 }
