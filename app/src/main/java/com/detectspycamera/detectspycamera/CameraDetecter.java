@@ -69,7 +69,7 @@ public class CameraDetecter extends AppCompatActivity implements SensorEventList
     }
 
     private LineDataSet createSet() {
-        LineDataSet lineDataSet = new LineDataSet(null, "Dynamic Data");
+        LineDataSet lineDataSet = new LineDataSet(null, getString(R.string.dynamic_data));
         lineDataSet.setAxisDependency(AxisDependency.LEFT);
         lineDataSet.setColor(ColorTemplate.getHoloBlue());
         lineDataSet.setLineWidth(2.0f);
@@ -90,6 +90,7 @@ public class CameraDetecter extends AppCompatActivity implements SensorEventList
         FrameLayout adContainerView = findViewById(R.id.ad_view_container);
         adsManager = new AdsManager(this, adContainerView);
         adsManager.loadMobUpBanner();
+        adsManager.loadMoPubInterstitial();
 
         this.sensor = findViewById(R.id.sensor);
 
@@ -99,9 +100,9 @@ public class CameraDetecter extends AppCompatActivity implements SensorEventList
             dialog.setContentView(R.layout.diloge);
             dialog.setTitle("Sensor Info");
             dialog.show();
-            this.sensor.setText("Sorry Your Device Does Not Support This App");
+            this.sensor.setText(R.string.does_not_suuport);
         } else {
-            this.sensor.setText("Move Phone Near Suspected Devices");
+            this.sensor.setText(getText(R.string.move_phone_near_suspected_devices));
         }
         this.value = findViewById(R.id.m_value);
         this.status = findViewById(R.id.status);
@@ -160,9 +161,9 @@ public class CameraDetecter extends AppCompatActivity implements SensorEventList
                 }
             }
             if (j < 45) {
-                this.status.setText("NOTHING DETECTED");
+                this.status.setText(getString(R.string.nothing_detected));
             } else {
-                String str = "POTENTIAL CAMERA DETECTED";
+                String str = getString(R.string.etected_camera);
                 if (j >= 45 && j <= 80) {
                     this.status.setText(str);
                 } else if (j > 80 && j <= 120) {
@@ -170,7 +171,7 @@ public class CameraDetecter extends AppCompatActivity implements SensorEventList
                 } else if (j > 120 && j <= 140) {
                     this.status.setText(str);
                 } else if (j > 140) {
-                    this.status.setText("DETECTED HIGH CAMERA RADIATIONS");
+                    this.status.setText(getString(R.string.etected_camera));
                     if (this.mediaPlayer == null) {
                         this.mediaPlayer = MediaPlayer.create(this, this.beep[0]);
                     }

@@ -45,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="NOTHING DETECTED"
+        android:text="@string/nothing_detected"
         android:textColor="#000000"
         android:textSize="18dp" />
 
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Move Phone Near Suspected Devices"
+        android:text="@string/move_phone_near_suspected_devices"
         android:textColor="#f70206"
         android:textSize="16dp" />
 

@@ -68,7 +68,7 @@ public class CameraDetectorByGraph extends AppCompatActivity implements SensorEv
     }
 
     private LineDataSet createSet() {
-        LineDataSet lineDataSet = new LineDataSet(null, "Dynamic Data");
+        LineDataSet lineDataSet = new LineDataSet(null, getString(R.string.dynamic_data));
         lineDataSet.setAxisDependency(AxisDependency.LEFT);
         lineDataSet.setColor(ColorTemplate.getHoloBlue());
         lineDataSet.setLineWidth(2.0f);
@@ -89,7 +89,7 @@ public class CameraDetectorByGraph extends AppCompatActivity implements SensorEv
         FrameLayout adContainerView = findViewById(R.id.ad_view_container);
         adsManager = new AdsManager(this, adContainerView);
         adsManager.loadMobUpBanner();
-
+        adsManager.loadMoPubInterstitial();
 
         this.sensor = findViewById(R.id.sensor_graph);
 
@@ -99,9 +99,9 @@ public class CameraDetectorByGraph extends AppCompatActivity implements SensorEv
             dialog.setContentView(R.layout.diloge);
             dialog.setTitle("Sensor Info");
             dialog.show();
-            this.sensor.setText("Sorry Your Device Does Not Support This App");
+            this.sensor.setText(getString(R.string.does_not_suuport));
         } else {
-            this.sensor.setText("Move Phone Near Suspected Devices");
+            this.sensor.setText(getString(R.string.move_phone_near_suspected_devices));
         }
         this.value = findViewById(R.id.m_value_graph);
         this.status = findViewById(R.id.status_graph);
@@ -160,9 +160,9 @@ public class CameraDetectorByGraph extends AppCompatActivity implements SensorEv
                 }
             }
             if (j < 45) {
-                this.status.setText("NOTHING DETECTED");
+                this.status.setText(getString(R.string.nothing_detected));
             } else {
-                String str = "POTENTIAL CAMERA DETECTED";
+                String str =getString(R.string.etected_camera);
                 if (j >= 45 && j <= 80) {
                     this.status.setText(str);
                 } else if (j > 80 && j <= 120) {
@@ -170,7 +170,7 @@ public class CameraDetectorByGraph extends AppCompatActivity implements SensorEv
                 } else if (j > 120 && j <= 140) {
                     this.status.setText(str);
                 } else if (j > 140) {
-                    this.status.setText("DETECTED HIGH CAMERA RADIATIONS");
+                    this.status.setText(getString(R.string.etected_camera));
                     if (this.mediaPlayer == null) {
                         this.mediaPlayer = MediaPlayer.create(this, this.beep[0]);
                     }
@@ -186,6 +186,19 @@ public class CameraDetectorByGraph extends AppCompatActivity implements SensorEv
             Double.isNaN(d);
             this.gauge.speedTo((float) ((long) ((d / 2000.0d) * 100.0d)));
         }
+    }
+
+    /* access modifiers changed from: protected */
+    public void onResume() {
+        super.onResume();
+        SensorManager sensorManager2 = this.sensorManager;
+        sensorManager2.registerListener(this, sensorManager2.getDefaultSensor(2), 3);
+    }
+
+    /* access modifiers changed from: protected */
+    public void onPause() {
+        super.onPause();
+        this.sensorManager.unregisterListener(this);
     }
 
 

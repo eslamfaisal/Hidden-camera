@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Changing Room"
+            android:text="@string/changing_room"
             android:textColor="#ffffff"
             android:textSize="25dp" />
     </RelativeLayout>
@@ -41,9 +41,9 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
-            android:text="Scan for below devices(for manual scan, scan for lens looking part over below devices) \10\101. Mirror - Precaution : Touch the mirror. Do you feel any gap between your finger and its reflection? If No, there could be camera behind the mirror glass.\10\102. Hanger - Check the lens looking aperture for hanger especially screw looking objects. Put cloths covering all the screws.\10\103. Ceiling/Smoke Detector - Apply sticker/sellotape over the view able part of the detector.\10\10If you find anything suspicious, complain the authority\10\10Some easy steps can save you from Spy camera.\10\10"
+            android:text="@string/change_room_msg"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
     </ScrollView>
 
     <FrameLayout

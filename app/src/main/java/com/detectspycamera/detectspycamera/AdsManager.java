@@ -44,7 +44,7 @@ public class AdsManager {
     public MoPubView loadMobUpBanner() {
         HashMap<String, String> config = new HashMap<>();
         config.put("npa", "1");
-        SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(context.getString(R.string.mo_banner_id));
+        SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(context.getString(R.string.mo_banner_id_test));
         configBuilder.withMediatedNetworkConfiguration(GooglePlayServicesAdapterConfiguration.class.getName(), config);
 
         if (BuildConfig.DEBUG) {
@@ -58,7 +58,7 @@ public class AdsManager {
             public void onInitializationFinished() {
 
                 moPubView = new MoPubView(context);
-                moPubView.setAdUnitId(context.getString(R.string.mo_banner_id));
+                moPubView.setAdUnitId(context.getString(R.string.mo_banner_id_test));
                 moPubView.setAdSize(MoPubView.MoPubAdSize.MATCH_VIEW);
                 adContainerView.addView(moPubView);
                 moPubView.loadAd();
@@ -71,7 +71,7 @@ public class AdsManager {
 
                     @Override
                     public void onBannerFailed(MoPubView banner, MoPubErrorCode errorCode) {
-                        loadAdMobBanner();
+
                     }
 
                     @Override
@@ -90,7 +90,6 @@ public class AdsManager {
                     }
                 });
 
-                loadMoPubInterstitial();
             }
         });
 
@@ -98,7 +97,7 @@ public class AdsManager {
     }
 
     public MoPubInterstitial loadMoPubInterstitial() {
-        mInterstitial = new MoPubInterstitial(context, context.getString(R.string.mo_int_id));
+        mInterstitial = new MoPubInterstitial(context, context.getString(R.string.mo_int_id_test));
         mInterstitial.setInterstitialAdListener(new MoPubInterstitial.InterstitialAdListener() {
             @Override
             public void onInterstitialLoaded(MoPubInterstitial interstitial) {

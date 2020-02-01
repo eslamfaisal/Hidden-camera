@@ -1,10 +1,54 @@
 <resources>
     <string name="app_name">Hidden camera detectors</string>
-    <string name="admob_Inerstitial_ID">ca-app-pub-5857470349008729/6407588888</string>
-    <string name="admob_banner_unit">ca-app-pub-5857470349008729/3972997235</string>
-    <string name="app_id">ca-app-pub-5857470349008729~9470179575</string>
-    <string name="mo_banner_id_test">b195f8dd8ded45fe847ad89ed1d016da</string>
-    <string name="mo_banner_id">4fbacd893803433da50bd486f0333b48</string>
-    <string name="mo_int_id">768bcec3bff5417e9fa4acfaa3a692df</string>
-    <string name="mo_int_id_test">24534e1901884e398f1253216226017e</string>
+    <string name="admob_Inerstitial_ID" translatable="false">ca-app-pub-5857470349008729/6407588888</string>
+    <string name="admob_banner_unit" translatable="false">ca-app-pub-5857470349008729/3972997235</string>
+    <string name="app_id" translatable="false">ca-app-pub-5857470349008729~9470179575</string>
+    <string name="mo_banner_id_test" translatable="false">b195f8dd8ded45fe847ad89ed1d016da</string>
+    <string name="mo_banner_id" translatable="false">4fbacd893803433da50bd486f0333b48</string>
+    <string name="mo_int_id" translatable="false">768bcec3bff5417e9fa4acfaa3a692df</string>
+    <string name="mo_int_id_test" translatable="false">24534e1901884e398f1253216226017e</string>
+    <string name="detect_spy_devices">Detect Spy devices</string>
+    <string name="detect_infrared_camera">Detect Infrared Camera</string>
+    <string name="tips_and_tricks">Tips And Tricks</string>
+    <string name="share_test">Hidden Camera detector Install and Share:</string>
+    <string name="bathroom_msg">Scan for below devices (for manual scan, scan for lens looking part over below devices).\n \n
+        1- Water Heater - Precaution - Turn off heater and then bath.\n \n
+        2- Mirror - Precaution : Touch the mirror. Do you feel any gap between your finger and its reflection? If No, there could be camera behind the mirror glass.\n \n
+        3- Ceiling/Smoke Detector - Precaution : Apply sticker/Sellotape over the view able part of the detector.\n \n
+        4- Lamps or Bulbs - Precaution : Can\\\'t be much, Use curtains whenever possible. If you find anything suspicious, complain the authority</string>
+    <string name="bedroom">Bedroom</string>
+    <string name="bathroom">Bathroom</string>
+    <string name="changing_room">Changing room</string>
+    <string name="outside">OutSide</string>
+    <string name="bedroom_msg">Now A days Hotel Room Are Famous For Spy Camera\n\n
+        1- Scan Every part Of The Room When You Entered By The Hidden Camera Detector\n\n.
+        2- Side Table - Precaution : Apply sticker/sellotape over the view able part of the detector.\n\n
+        3- Air Condition Search in Room - Precaution : If possible use fans and turn of the AC. Turn rotating bald fans OFF.\n\n
+        4- Television behind - Precaution : Turn off main power supply. Keep objects front of the lens looking pat of the TV.\n\n
+        5- Night Lamp - Precaution : Keep it off or change its direction.\n\n
+        6- Flower Pot - Change position to least view able area.\n\n
+        7- Coffee Maker - Precaution : Unplug it and put it inside cupboard\n\n
+        8- Finally do not forget to turn lights off</string>
+    <string name="change_room_msg">Scan for below devices(for manual scan, scan for lens looking part over below devices).\n\n
+        1- Mirror - Precaution : Touch the mirror. Do you feel any gap between your finger and its reflection? If No, there could be camera behind the mirror glass.\n\n
+        2- Hanger - Check the lens looking aperture for hanger especially screw looking objects. Put cloths covering all the screws.\n\n
+        3- Ceiling/Smoke Detector - Apply sticker/sellotape over the view able part of the detector.\n\n
+        4- If you find anything suspicious, complain the authority\n\n
+        5- Some easy steps can save you from Spy camera.</string>
+    <string name="other_apps">Other apps</string>
+    <string name="outside_msg">In outside world, you are not supposed to hide your identity in official places so just be cautious and behave accordingly.\n\n
+        1- The Security Areas the CCTV Camera fixed For Only Security Reason not For Spy Purpose So Don\'t Be Worry About It.10The Shopping Mall and Like The Army Camp and School Hospital, Library etc.\n\n
+        2- Some easy steps can save you from uneasy situations.</string>
+    <string name="move_phone_near_suspected_devices">Move Phone Near Suspected Devices</string>
+    <string name="nothing_detected">NOTHING DETECTED</string>
+    <string name="does_not_suuport">Sorry Your Device Does Not Support This App</string>
+    <string name="etected_camera">DETECTED HIGH CAMERA RADIATIONS</string>
+    <string name="dynamic_data">Dynamic Data</string>
+    <string name="detect_option">Detect Option</string>
+    <string name="spy_camera_detector">Spy camera detector</string>
+    <string name="detect_bug">Detect Bug</string>
+    <string name="detect_spy_device">Detect Spy Device</string>
+    <string name="if_you_see_white_light_or_another_color_on_which_you_doubt_that_you_can_not_see_by_naked_eye_it_is_infrared_light_it_could_be_infrared_camera">If you see white light or Another color on which you doubt,that you can not see by naked eye, it is infrared light. it could be infrared Camera.</string>
+    <string name="your_device_does_not_have_a_magnetic_field_sensor_due_to_this_app_is_not_working_on_your_phone_please_try_on_another_device_with_builtin_magnetic_sensor">Your Device Does not Have A Magnetic Field Sensor Due to This App Is Not Working On your Phone, Please Try on Another Device with Builtin Magnetic Sensor</string>
+
 </resources>

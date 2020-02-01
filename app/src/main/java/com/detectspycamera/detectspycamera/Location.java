@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,12 +21,15 @@ public class Location extends AppCompatActivity {
     private Button changing_btn;
 
     private Button outside_btn;
-
+    private AdsManager adsManager;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_location);
+        FrameLayout adContainerView = findViewById(R.id.ad_view_container);
+        adsManager = new AdsManager(this, adContainerView);
+        adsManager.loadMobUpBanner();
 
         this.bd_btn = findViewById(R.id.bd_btn);
         this.bt_btn = findViewById(R.id.bt_btn);
@@ -73,4 +77,15 @@ public class Location extends AppCompatActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (adsManager.moPubView != null) {
+            adsManager.moPubView.destroy();
+        }
+        if (adsManager.mInterstitial != null) {
+            adsManager.mInterstitial.destroy();
+        }
+    }
 }

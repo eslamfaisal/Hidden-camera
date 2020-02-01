@@ -45,6 +45,7 @@ public class meterDetector extends AppCompatActivity implements SensorEventListe
         FrameLayout adContainerView = findViewById(R.id.ad_view_container);
         adsManager = new AdsManager(this, adContainerView);
         adsManager.loadMobUpBanner();
+        adsManager.loadMoPubInterstitial();
 
         this.sensor = findViewById(R.id.sensor_speed);
 
@@ -54,9 +55,9 @@ public class meterDetector extends AppCompatActivity implements SensorEventListe
             dialog.setContentView(R.layout.diloge);
             dialog.setTitle("Sensor Info");
             dialog.show();
-            this.sensor.setText("Sorry Your Device Does Not Support This App");
+            this.sensor.setText(getString(R.string.does_not_suuport));
         } else {
-            this.sensor.setText("Move Phone Near Suspected Devices");
+            this.sensor.setText(getString(R.string.move_phone_near_suspected_devices));
         }
         this.value = findViewById(R.id.m_value_speed);
         this.status = findViewById(R.id.status_speed);
@@ -98,9 +99,9 @@ public class meterDetector extends AppCompatActivity implements SensorEventListe
                 }
             }
             if (sqrt < 45) {
-                this.status.setText("NOTHING DETECTED");
+                this.status.setText(getString(R.string.nothing_detected));
             } else {
-                String str = "POTENTIAL CAMERA DETECTED";
+                String str = getString(R.string.etected_camera);
                 if (sqrt >= 45 && sqrt <= 80) {
                     this.status.setText(str);
                 } else if (sqrt > 80 && sqrt <= 120) {
@@ -108,7 +109,7 @@ public class meterDetector extends AppCompatActivity implements SensorEventListe
                 } else if (sqrt > 120 && sqrt <= 140) {
                     this.status.setText(str);
                 } else if (sqrt > 140) {
-                    this.status.setText("DETECTED HIGH CAMERA RADIATIONS");
+                    this.status.setText(getString(R.string.etected_camera));
                     if (this.mediaPlayer == null) {
                         this.mediaPlayer = MediaPlayer.create(this, this.beep[0]);
                     }

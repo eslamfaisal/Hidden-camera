@@ -23,12 +23,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Washroom"
+            android:text="@string/bathroom"
             android:textColor="#ffffff"
             android:textSize="25dp" />
     </RelativeLayout>
 
     <ScrollView
+        android:layout_above="@id/ad_view_container"
         android:id="@+id/scrolling"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,12 +37,13 @@
         android:background="#ffffff">
 
         <TextView
+            android:id="@+id/basthroom_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:text="@string/bathroom_msg"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
-            android:text="Scan for below devices(for manual scan, scan for lens looking part over below devices) \10\101. Water Heater - Precaution - Turn off heater and then bath.\10\102. Mirror - Precaution : Touch the mirror. Do you feel any gap between your finger and its reflection? If No, there could be camera behind the mirror glass.\10\103. Ceiling/Smoke Detector - Precaution : Apply sticker/Sellotape over the view able part of the detector.\10\104. Lamps or Bulbs - Precaution : Can&apos;t be much, Use curtains whenever possible\10\10If you find anything suspicious, complain the authority\10\10"
             android:textColor="#000000"
             android:textSize="20dp" />
     </ScrollView>

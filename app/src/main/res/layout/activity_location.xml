@@ -16,17 +16,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Tips And Tricks"
+            android:text="@string/tips_and_tricks"
             android:textColor="#ffffff"
             android:textSize="25dp" />
     </RelativeLayout>
 
     <LinearLayout
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:orientation="vertical">
 
         <Button
@@ -35,7 +33,7 @@
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/buttonstyle"
-            android:text="Bedroom"
+            android:text="@string/bedroom"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="12dp" />
@@ -47,7 +45,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/buttonstyle"
-            android:text="Bathroom"
+            android:text="@string/bathroom"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="12dp" />
@@ -59,7 +57,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/buttonstyle"
-            android:text="Changing Room"
+            android:text="@string/changing_room"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="12dp" />
@@ -71,11 +69,17 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/buttonstyle"
-            android:text="OutSide"
+            android:text="@string/outside"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="12dp" />
     </LinearLayout>
 
 
+    <FrameLayout
+        android:id="@+id/ad_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal" />
 </RelativeLayout>

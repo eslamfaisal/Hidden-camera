@@ -43,9 +43,9 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="If you see white light or Another color on which you doubt,that you can not see by naked eye, it is infrared light. it could be infrared Camera."
+        android:text="@string/if_you_see_white_light_or_another_color_on_which_you_doubt_that_you_can_not_see_by_naked_eye_it_is_infrared_light_it_could_be_infrared_camera"
         android:textColor="#ffffff"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <FrameLayout
         android:id="@+id/ad_view_container"

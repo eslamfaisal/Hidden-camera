@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Detect Option"
+            android:text="@string/detect_option"
             android:textColor="#ffffff"
             android:textSize="20dp" />
     </RelativeLayout>
@@ -43,7 +43,7 @@
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/buttonstyle"
-            android:text="Spy camera detector"
+            android:text="@string/spy_camera_detector"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="12dp" />
@@ -55,7 +55,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/buttonstyle"
-            android:text="Detect Bug"
+            android:text="@string/detect_bug"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="12dp" />
@@ -67,7 +67,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/buttonstyle"
-            android:text="Detect Spy Device"
+            android:text="@string/detect_spy_device"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="12dp" />

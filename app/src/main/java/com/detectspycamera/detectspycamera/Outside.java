@@ -19,6 +19,7 @@ public class Outside extends AppCompatActivity {
         FrameLayout adContainerView = findViewById(R.id.ad_view_container);
         adsManager = new AdsManager(this, adContainerView);
         adsManager.loadMobUpBanner();
+        adsManager.loadMoPubInterstitial();
 
         this.bk_btn = findViewById(R.id.bk_btn);
         this.bk_btn.setOnClickListener(new OnClickListener() {

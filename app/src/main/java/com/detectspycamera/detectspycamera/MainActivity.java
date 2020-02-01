@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout adContainerView = findViewById(R.id.ad_view_container);
         adsManager = new AdsManager(this, adContainerView);
         adsManager.loadMobUpBanner();
+        adsManager.loadMoPubInterstitial();
 
 
         this.m_detect = findViewById(R.id.m_detect);
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         if (itemId == R.id.share) {
             Intent intent = new Intent("android.intent.action.SEND");
             intent.setType("text/plain");
-            intent.putExtra("android.intent.extra.TEXT", "Hidden Camera detector Install and Share:\n https://play.google.com/store/apps/details?id=com.detectspycamera.detectspycamera");
+            intent.putExtra("android.intent.extra.TEXT", getString(R.string.share_test)+"\n https://play.google.com/store/apps/details?id=com.detectspycamera.detectspycamera");
             startActivity(Intent.createChooser(intent, "Select Service "));
             return true;
         }
